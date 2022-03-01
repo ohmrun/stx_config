@@ -21,6 +21,7 @@ class Main {
 			}
 		).load(new File().toFletcher())
 		 .submit();
+
 		trace("Hello, world!");
 	}
 }
