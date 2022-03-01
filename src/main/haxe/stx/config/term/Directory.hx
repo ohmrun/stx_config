@@ -1,6 +1,8 @@
 package stx.config.term;
 
-abstract Directory(Attempt<HasDevice,Cluster<Couple<String,stx.fs.path.Directory>>,ConfigFailure>){
+typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigFailure>;
+
+@:forward abstract Directory(DirectoryDef) to DirectoryDef{
   public function new(){
     this = __.attempt((state:HasDevice) -> {
       final bake      = __.bake();
@@ -33,6 +35,12 @@ abstract Directory(Attempt<HasDevice,Cluster<Couple<String,stx.fs.path.Directory
         },
         Cluster.unit()
       );
-    }).errate(e -> (e:ConfigFailure));
+    }).errate(e -> (e:ConfigFailure))
+      .map(
+        cluster -> Ensemble.fromClusterCouple(cluster)
+      );
+  }
+  static public function unit(){
+    return new Directory();
   }
 }

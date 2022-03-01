@@ -1,6 +1,7 @@
 package stx.config.term;
 
-@:forward abstract Resource(Provide<Cluster<Couple<String,String>>>) to Provide<Cluster<Couple<String,String>>>{
+typedef ResourceDef = Provide<Cluster<Couple<String,String>>>;
+@:forward abstract Resource(ResourceDef) to ResourceDef{
   static public function unit(){
     return new Resource();
   }

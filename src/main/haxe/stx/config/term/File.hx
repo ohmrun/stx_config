@@ -1,6 +1,8 @@
 package stx.config.term;
 
-@:forward abstract File(Attempt<HasDevice,Ensemble<String>,ConfigFailure>) to Attempt<HasDevice,Ensemble<String>,ConfigFailure>{
+typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
+
+@:forward abstract File(FileDef) to FileDef{
   public function new(){
     this = __.attempt((state:HasDevice) -> {
       final bake      = __.bake();
@@ -21,10 +23,10 @@ package stx.config.term;
               return kind.absolute.if_else(
                 () -> Produce.fromRes(couple.snd().toArchive()).errate(e -> (e:FsFailure)),
                 () -> state.device.shell.cwd.pop().produce(state).errate(e -> (e:FsFailure)).adjust(
-                  (dir:Directory) -> couple.snd().toAttachment().map(__.couple.bind(dir)).errate(e -> (e:FsFailure))
+                  (dir:stx.fs.path.Directory) -> couple.snd().toAttachment().map(__.couple.bind(dir)).errate(e -> (e:FsFailure))
                 ).adjust(
                   __.decouple(
-                    (dir:Directory,attachment:Attachment) -> __.tracer()(dir.archive(attachment))
+                    (dir:stx.fs.path.Directory,attachment:Attachment) -> __.tracer()(dir.archive(attachment))
                   )
                 )
               ).map(
@@ -61,5 +63,8 @@ package stx.config.term;
          )
        );
     });
+  }
+  static public function unit(){
+    return new File();
   }
 }
