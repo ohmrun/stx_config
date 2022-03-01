@@ -14,7 +14,7 @@
   using stx.Config;//Wildcard extension `config`
   function file(){
     var cfg = __.config().File();
-    $type(cfg);//Attempt<Ensemble<String>,ConfigFailure>
+    $type(cfg);//Attempt<HasDevice,Ensemble<String>,ConfigFailure>
   }
 ```
 
