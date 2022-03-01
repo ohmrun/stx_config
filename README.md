@@ -14,7 +14,7 @@
   using stx.Config;//Wildcard extension `config`
   function file(){
     var cfg = __.config().File();
-    $type(cfg);//Attempt<Cluster<Couple<String,String>>,ConfigFailure>
+    $type(cfg);//Attempt<Ensemble<String>,ConfigFailure>
   }
 ```
 
@@ -30,7 +30,7 @@
   using stx.Config;//Wildcard extension `config`
   function file(){
     var cfg = __.config().Resource();
-    $type(cfg);//Produce<Cluster<Couple<String,String>>,ConfigFailure>
+    $type(cfg);//Produce<Ensemble<String>,ConfigFailure>
   }
 ```
 
@@ -47,6 +47,6 @@
   using stx.Config;//Wildcard extension `config`
   function file(){
     var cfg = __.config().Directory();
-    $type(cfg);Attempt<HasDevice,Cluster<Couple<String,Directory>>,ConfigFailure>
+    $type(cfg);//Attempt<HasDevice,Ensemble<Directory>,ConfigFailure>
   }
 ```
