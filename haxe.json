@@ -1,0 +1,33 @@
+{
+  "build" : {
+    "-D"  : ["no-deprecation-warnings"],
+    "-cp" : "src/main/haxe",
+    "-lib" : [
+      "stx_pico",
+      "stx_nano",
+      "stx_fn",
+      "stx_log",
+      "stx_asys",
+      "stx_bake",
+      "fletcher"
+    ],
+    "unit" : {
+      "--macro" : [
+        "include('stx.config',true)"
+      ]
+    },
+    "main" : {
+      "-main" : "Main",
+      "--resource" : [
+        "src/main/haxe/resource/test.txt@test"
+      ],
+      "-D" : [
+        "stx.config.Resource=test",
+        "stx.config.File=src/main/haxe/config/config.txt"
+      ],
+      "interp" : {
+        "--interp" : true
+      }
+    }
+  }
+}
