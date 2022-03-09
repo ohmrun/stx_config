@@ -19,18 +19,23 @@ typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigF
         (next:Produce<Couple<String,Raw>,FsFailure>,memo:Cluster<Couple<String,stx.fs.path.Directory>>) -> {
           return next.attempt(
             (couple) -> {
-              final that  = couple.snd().realize().adjust(
-                address -> address.toDirectory().errate(e -> (e:FsFailure))
-              );
-              final thatI = that.map(
+              final that  = couple.snd().absolutize().command(
+                __.command(
+                  (address:Address) -> address.is_directory().produce(state).point(
+                    b -> b.if_else(
+                      () -> Execute.unit(),
+                      () -> Execute.pure(__.fault().of(E_Path_ExpectedDirectory)).errate(e -> (e:FsFailure))
+                    )
+                  )
+                )
+              ).map(
+                address -> address.toDirectory()
+              ).map(
                 directory -> memo.snoc(__.couple(couple.fst(),directory))
               ).produce(state);
               //$type(thatI);
-              return thatI;
+              return that;
             }
-            // couple.snd().toDirectory().map(
-            //   dir -> cluster
-            // );
           );
         },
         Cluster.unit()

@@ -9,6 +9,7 @@
       "stx_log",
       "stx_asys",
       "stx_bake",
+      "stx_om",
       "fletcher"
     ],
     "unit" : {
@@ -23,7 +24,9 @@
       ],
       "-D" : [
         "stx.config.Resource=test",
-        "stx.config.File=src/main/haxe/config/config.txt"
+        "stx.config.File=src/main/haxe/config/config.txt",
+        "stx.config.Env=__STX__CONFIG__CUSTOM_ENV",
+        "stx.config.Env=HOME"
       ],
       "interp" : {
         "--interp" : true
