@@ -9,6 +9,7 @@
       "stx_log",
       "stx_asys",
       "stx_bake",
+      "stx_test",
       "stx_om",
       "fletcher"
     ],
@@ -28,6 +29,13 @@
         "stx.config.Env=__STX__CONFIG__CUSTOM_ENV",
         "stx.config.Env=HOME"
       ],
+      "interp" : {
+        "--interp" : true
+      }
+    },
+    "test" : {
+      "--main" : "stx.config.Test",
+      "-D" : ["this=something;","that='the other'","no.quotes= no quotes"],
       "interp" : {
         "--interp" : true
       }

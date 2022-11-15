@@ -14,6 +14,21 @@
     "url": "https://github.com/ohmrun/stx_config",
     "dependencies": {
         
+        "stx_pico"      : "git:https://github.com/ohmrun/stx_pico.git",
+        "stx_nano"      : "git:https://github.com/ohmrun/stx_nano.git",
+        "stx_fn"        : "git:https://github.com/ohmrun/stx_fn.git",
+
+        "stx_log"       : "git:https://github.com/ohmrun/stx_log.git",
+        "stx_pkg"       : "git:https://github.com/ohmrun/stx_pkg.git",
+        "stx_assert"    : "git:https://github.com/ohmrun/stx_assert.git",
+        "stx_parse"     : "git:https://github.com/ohmrun/stx_parse.git",
+        "stx_makro"     : "git:https://github.com/ohmrun/stx_makro.git",
+
+        "stx_ds"        : "git:https://github.com/ohmrun/stx_ds.git",
+        
+        "fletcher"      : "git:https://github.com/ohmrun/fletcher.git",
+        "stx_bake"      : "git:https://github.com/ohmrun/stx_bake.git",
+        "stx_asys"      : "git:https://github.com/ohmrun/stx_asys.git"
     },
     "classPath": "src/main/haxe"
 }

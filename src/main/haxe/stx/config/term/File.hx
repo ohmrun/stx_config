@@ -26,7 +26,7 @@ typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
                   (dir:stx.fs.path.Directory) -> couple.snd().toAttachment().map(__.couple.bind(dir)).errate(e -> (e:FsFailure))
                 ).adjust(
                   __.decouple(
-                    (dir:stx.fs.path.Directory,attachment:Attachment) -> __.tracer()(dir.archive(attachment))
+                    (dir:stx.fs.path.Directory,attachment:Attachment) -> (dir.archive(attachment))
                   )
                 )
               ).map(
