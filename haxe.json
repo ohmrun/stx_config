@@ -10,6 +10,7 @@
       "stx_asys",
       "stx_bake",
       "stx_test",
+      "stx_cli",
       "stx_om",
       "fletcher"
     ],
