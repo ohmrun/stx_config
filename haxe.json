@@ -9,7 +9,6 @@
       "stx_log",
       "stx_asys",
       "stx_bake",
-      "stx_test",
       "stx_cli",
       "stx_om",
       "fletcher"
@@ -35,7 +34,9 @@
       }
     },
     "test" : {
-      "--main" : "stx.config.Test",
+      "-cp"     : "src/test/haxe",
+      "-L"      : ["stx_test"],
+      "--main"  : "stx.config.Test",
       "-D" : ["this=something;","that='the other'","no.quotes= no quotes"],
       "interp" : {
         "--interp" : true

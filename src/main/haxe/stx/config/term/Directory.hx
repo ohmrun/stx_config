@@ -18,7 +18,7 @@ typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigF
         ),
         (next:Produce<Couple<String,Raw>,FsFailure>,memo:Cluster<Couple<String,stx.fs.path.Directory>>) -> {
           return next.attempt(
-            (couple) -> {
+            (couple:Couple<String,Raw>) -> {
               final that  = couple.snd().absolutize().command(
                 __.command(
                   (address:Address) -> address.is_directory().produce(state).point(
