@@ -45,6 +45,9 @@ typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigF
         cluster -> Ensemble.fromClusterCouple(cluster)
       );
   }
+  public function prj(){
+    return this;
+  }
   static public function unit(){
     return new Directory();
   }

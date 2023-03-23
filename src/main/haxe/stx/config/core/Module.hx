@@ -5,7 +5,7 @@ class Module extends Clazz{
     super();
   }  
   public function Directory():DirectoryDef{
-    return stx.config.term.Directory.unit();
+    return stx.config.term.Directory.unit().prj();
   }
   public function File():FileDef{
     return stx.config.term.File.unit();

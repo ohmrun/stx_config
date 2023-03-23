@@ -1,5 +1,7 @@
 package stx;
 
+using stx.Pico;
+using stx.Nano;
 using eu.ohmrun.Fletcher;
 using stx.config.Logging;
 using stx.Io;
