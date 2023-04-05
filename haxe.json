@@ -8,7 +8,7 @@
       "stx_fn",
       "stx_log",
       "stx_asys",
-      "stx_bake",
+      "bake",
       "stx_cli",
       "stx_om",
       "fletcher"

@@ -27,7 +27,7 @@
         "stx_ds"        : "",
         
         "fletcher"      : "",
-        "stx_bake"      : "",
+        "bake"      : "",
         "stx_asys"      : ""
     },
     "classPath": "src/main/haxe"

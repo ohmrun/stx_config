@@ -1,6 +1,6 @@
 package stx.config;
 
-using stx.Bake;
+using Bake;
 using stx.Test;
 
 class Test{
