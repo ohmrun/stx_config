@@ -6,10 +6,10 @@ typedef ResourceDef = Produce<Ensemble<String>,ConfigFailure>;
     return new Resource();
   }
   public function new(){
-    final bake      = __.bake();
+    final bake      = Bake.pop();
     //__.log().debug(_ -> _.pure(bake.defines));
     final resource  = Ensemble.fromClusterCouple(bake.defines.map_filter(
-      x -> x.key == 'stx.config.Resource' ? Some(__.tracer()(x.val)) : None
+      x -> x.key == 'stx.config.Resource' ? Some(__.tracer()(x.value)) : None
     ).map(
       (x:String) -> __.couple(x,__.resource(x,__.here()).string())//TODO handle error
     ));

@@ -5,10 +5,10 @@ typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
 @:forward abstract File(FileDef) to FileDef{
   public function new(){
     this = __.attempt((state:HasDevice) -> {
-      final bake      = __.bake();
+      final bake      = Bake.pop();
       __.log().debug(_ -> _.pure(bake.defines));
       final file  = bake.defines.map_filter(
-        x -> x.key == 'stx.config.File' ? Some(x.val) : None
+        x -> x.key == 'stx.config.File' ? Some(x.value) : None
       );
       return Produce.bind_fold(
         file.map(

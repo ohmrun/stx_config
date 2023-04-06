@@ -12,7 +12,7 @@ class Test{
 }
 class ParseDefinesTest extends TestCase{
   public function test(){
-    final bake = __.bake();
+    final bake = Bake.pop();
     //final v(bake.defines.search(x -> x.key == "no.quotes")); 
   }
 }
