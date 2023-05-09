@@ -1,6 +1,7 @@
 package stx.config.term;
 
-typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigFailure>;
+#if (sys || nodejs)
+typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.asys.fs.path.Directory>,ConfigFailure>;
 
 @:forward abstract Directory(DirectoryDef) to DirectoryDef{
   public function new(){
@@ -16,7 +17,7 @@ typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigF
             __.couple.bind(name)
           )
         ),
-        (next:Produce<Couple<String,Raw>,FsFailure>,memo:Cluster<Couple<String,stx.fs.path.Directory>>) -> {
+        (next:Produce<Couple<String,Raw>,FsFailure>,memo:Cluster<Couple<String,stx.asys.fs.path.Directory>>) -> {
           return next.attempt(
             (couple:Couple<String,Raw>) -> {
               final that  = couple.snd().absolutize().command(
@@ -52,3 +53,4 @@ typedef DirectoryDef = Attempt<HasDevice,Ensemble<stx.fs.path.Directory>,ConfigF
     return new Directory();
   }
 }
+#end

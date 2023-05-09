@@ -1,5 +1,6 @@
 package stx.config.term;
 
+#if (sys || nodejs)
 typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
 
 @:forward abstract File(FileDef) to FileDef{
@@ -23,10 +24,10 @@ typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
               return kind.absolute.if_else(
                 () -> Produce.fromUpshot(couple.snd().toArchive()).errate(e -> (e:FsFailure)),
                 () -> state.device.shell.cwd.pop().produce(state).errate(e -> (e:FsFailure)).adjust(
-                  (dir:stx.fs.path.Directory) -> couple.snd().toAttachment().map(__.couple.bind(dir)).errate(e -> (e:FsFailure))
+                  (dir:stx.asys.fs.path.Directory) -> couple.snd().toAttachment().map(__.couple.bind(dir)).errate(e -> (e:FsFailure))
                 ).adjust(
                   __.decouple(
-                    (dir:stx.fs.path.Directory,attachment:Attachment) -> (dir.archive(attachment))
+                    (dir:stx.asys.fs.path.Directory,attachment:Attachment) -> (dir.archive(attachment))
                   )
                 )
               ).map(
@@ -68,3 +69,4 @@ typedef FileDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
     return new File();
   }
 }
+#end

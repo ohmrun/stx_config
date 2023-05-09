@@ -1,6 +1,6 @@
 package stx.config.term;
 
-typedef EnvDef = Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
+typedef EnvDef = Dynamic;//Attempt<HasDevice,Ensemble<String>,ConfigFailure>;
 
 /**
   
