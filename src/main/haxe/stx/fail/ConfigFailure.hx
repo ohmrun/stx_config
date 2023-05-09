@@ -15,7 +15,7 @@ abstract ConfigFailure(ConfigFailureSum) from ConfigFailureSum to ConfigFailureS
   @:from static public function fromFsFailure(self:FsFailure){
     return lift(E_Config_Fs(self));
   }
-  @:from static public function fromNoise(self:tink.core.Noise){
+  @:from static public function fromNada(self:stx.pico.Nada){
     return lift(E_Config("E_Config"));
   }
 }
